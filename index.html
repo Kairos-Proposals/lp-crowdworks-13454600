@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos ご提案 | カフェ＆ベーカリー 公式サイト制作</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Antique+B1&family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --coffee-dark:#2C1810;
+    --coffee-mid:#4A2E1E;
+    --crust:#D4914A;
+    --cream:#FBF3E7;
+    --sage:#6B7A5E;
+    --wine:#7A3B3B;
+    --text:#3A2E28;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Noto Sans JP',sans-serif;
+    color:var(--text);
+    background:var(--cream);
+    line-height:1.85;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.brand{
+    font-family:'Shippori Antique B1','Zen Maru Gothic',sans-serif;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    background:radial-gradient(ellipse at 30% 20%, var(--coffee-mid) 0%, var(--coffee-dark) 60%, #1c0f0a 100%);
+    color:var(--cream);
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+  }
+  .steam{
+    position:absolute;
+    bottom:-10%;
+    border-radius:45% 55% 60% 40% / 55% 45% 55% 45%;
+    background:rgba(251,243,231,0.06);
+    filter:blur(2px);
+    animation:rise 12s ease-in-out infinite;
+  }
+  .steam.s1{left:6%;width:220px;height:320px;animation-delay:0s;}
+  .steam.s2{left:70%;width:160px;height:260px;animation-delay:3s;}
+  .steam.s3{left:40%;width:120px;height:200px;animation-delay:6s;}
+  .steam.s4{left:85%;width:90px;height:150px;animation-delay:1.5s;}
+  @keyframes rise{
+    0%{transform:translateY(10%) translateX(0) rotate(0deg);opacity:0;}
+    20%{opacity:0.9;}
+    50%{transform:translateY(-45%) translateX(20px) rotate(8deg);}
+    80%{opacity:0.4;}
+    100%{transform:translateY(-110%) translateX(-10px) rotate(-6deg);opacity:0;}
+  }
+  .hero-inner{position:relative;z-index:2;padding:120px 24px;width:100%;}
+  .tag-line{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:0.22em;
+    padding:8px 18px;
+    border:1px solid rgba(251,243,231,0.4);
+    border-radius:999px;
+    margin-bottom:32px;
+    color:#EBD9BF;
+  }
+  .hero h1{
+    font-size:clamp(32px,5vw,58px);
+    line-height:1.5;
+    font-weight:700;
+    max-width:760px;
+    margin-bottom:28px;
+    letter-spacing:0.02em;
+  }
+  .hero h1 span{color:var(--crust);}
+  .hero p.lead{
+    font-size:16px;
+    max-width:520px;
+    color:#E8D9C8;
+    font-weight:300;
+  }
+  .hero .from{
+    margin-top:56px;
+    font-size:13px;
+    letter-spacing:0.1em;
+    color:#C9B49A;
+  }
+  .scroll-cue{
+    position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+    font-size:11px;letter-spacing:.2em;color:#C9B49A;
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    z-index:2;
+  }
+  .scroll-cue::after{
+    content:"";width:1px;height:36px;background:linear-gradient(var(--crust),transparent);
+    animation:cueMove 2s ease-in-out infinite;
+  }
+  @keyframes cueMove{0%,100%{opacity:.2}50%{opacity:1}}
+
+  /* ===== SECTION COMMON ===== */
+  section{padding:110px 0;position:relative;}
+  .eyebrow{
+    font-size:12px;letter-spacing:.25em;color:var(--wine);font-weight:700;margin-bottom:14px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:28px;height:2px;background:var(--crust);display:inline-block;}
+  .sec-title{
+    font-size:clamp(24px,3.4vw,38px);
+    font-weight:700;
+    margin-bottom:36px;
+    color:var(--coffee-dark);
+    line-height:1.6;
+  }
+
+  /* ===== UNDERSTANDING ===== */
+  .understand{background:var(--cream);}
+  .u-grid{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:start;
+  }
+  .u-text p{margin-bottom:20px;font-size:15.5px;}
+  .u-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+  .u-badges span{
+    background:#fff;border:1px solid rgba(122,59,59,0.25);
+    padding:8px 16px;border-radius:999px;font-size:13px;color:var(--wine);
+  }
+  .u-visual{
+    position:relative;
+    background:linear-gradient(160deg,var(--coffee-dark),var(--coffee-mid));
+    border-radius:58% 42% 45% 55% / 55% 60% 40% 45%;
+    min-height:320px;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 30px 60px -20px rgba(44,24,16,0.4);
+  }
+  .u-visual::before{
+    content:"”";
+    font-family:'Shippori Antique B1',serif;
+    font-size:160px;color:rgba(251,243,231,0.12);
+    position:absolute;top:-10px;left:20px;
+  }
+  .u-visual .u-quote{
+    color:var(--cream);font-size:17px;line-height:2;padding:0 46px;position:relative;z-index:2;
+    font-family:'Zen Maru Gothic',sans-serif;font-weight:500;
+  }
+  .u-quote b{color:var(--crust);}
+
+  /* ===== VALUE CARDS ===== */
+  .value{background:#fff;}
+  .value-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+  }
+  .vcard{
+    background:var(--cream);
+    border-radius:18px;
+    padding:32px 24px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(212,145,74,0.25);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .vcard:hover{transform:translateY(-8px);box-shadow:0 24px 40px -18px rgba(122,59,59,0.35);}
+  .vcard .num{
+    font-family:'Shippori Antique B1',serif;
+    font-size:42px;color:rgba(122,59,59,0.18);
+    position:absolute;top:10px;right:18px;
+  }
+  .vcard h3{
+    font-size:18px;margin:18px 0 12px;color:var(--coffee-dark);
+    font-weight:700;position:relative;z-index:1;
+  }
+  .vcard p{font-size:13.5px;color:#5a4a40;position:relative;z-index:1;}
+  .vcard .dot{
+    width:44px;height:44px;border-radius:50%;
+    background:linear-gradient(135deg,var(--crust),var(--wine));
+    margin-bottom:6px;
+  }
+
+  /* ===== SCHEDULE ===== */
+  .schedule{background:var(--coffee-dark);color:var(--cream);}
+  .schedule .sec-title{color:var(--cream);}
+  .schedule .eyebrow{color:var(--crust);}
+  .schedule .eyebrow::before{background:var(--crust);}
+  .timeline{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:20px;position:relative;
+  }
+  .timeline::before{
+    content:"";position:absolute;top:26px;left:8%;right:8%;height:2px;
+    background:repeating-linear-gradient(90deg,var(--crust) 0 8px, transparent 8px 16px);
+    z-index:0;
+  }
+  .t-item{position:relative;z-index:1;background:rgba(251,243,231,0.05);border:1px solid rgba(251,243,231,0.15);border-radius:16px;padding:28px 22px;}
+  .t-week{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:52px;height:52px;border-radius:50%;
+    background:var(--crust);color:var(--coffee-dark);font-weight:700;font-size:14px;margin-bottom:18px;
+  }
+  .t-item h3{font-size:16px;margin-bottom:10px;font-family:'Zen Maru Gothic',sans-serif;color:#F4E4D0;}
+  .t-item p{font-size:13px;color:#D8C6B0;}
+  .note-budget{
+    margin-top:50px;text-align:center;font-size:13px;color:#C9B49A;letter-spacing:.05em;
+  }
+
+  /* ===== CLOSING ===== */
+  .closing{
+    background:linear-gradient(135deg,var(--crust) 0%, var(--wine) 100%);
+    color:var(--cream);
+    text-align:center;
+    padding:120px 24px;
+  }
+  .closing h2{
+    font-size:clamp(26px,4vw,42px);margin-bottom:20px;font-weight:700;
+  }
+  .closing p{max-width:520px;margin:0 auto 40px;font-size:15px;color:#FDF3E4;font-weight:300;}
+  .cta-btn{
+    display:inline-block;background:var(--coffee-dark);color:var(--cream);
+    padding:18px 48px;border-radius:999px;font-weight:700;letter-spacing:.05em;
+    font-size:15px;box-shadow:0 20px 40px -14px rgba(0,0,0,0.4);
+    transition:transform .25s ease;
+  }
+  .cta-btn:hover{transform:translateY(-4px);}
+  footer{
+    background:var(--coffee-dark);color:#B7A08A;text-align:center;padding:26px;font-size:12px;letter-spacing:.08em;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:860px){
+    .u-grid{grid-template-columns:1fr;}
+    .value-grid{grid-template-columns:repeat(2,1fr);}
+    .timeline{grid-template-columns:1fr;}
+    .timeline::before{display:none;}
+  }
+  @media (max-width:520px){
+    .value-grid{grid-template-columns:1fr;}
+    .hero-inner{padding:100px 20px;}
+    section{padding:80px 0;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="steam s1"></div>
+  <div class="steam s2"></div>
+  <div class="steam s3"></div>
+  <div class="steam s4"></div>
+  <div class="hero-inner wrap">
+    <span class="tag-line">PROPOSAL FOR NeXUS_CODE 様 ｜ カフェ＆ベーカリー公式サイト制作</span>
+    <h1>一杯の湯気と、<br>焼きたての香りごと<br><span>伝わるサイトを。</span></h1>
+    <p class="lead">こだわりのコーヒーと自家製パンの魅力は、写真と余白の設計次第で何倍にも伝わります。Kairosが、大阪の街に「行ってみたい」を生み出すお店の顔をつくります。</p>
+    <div class="from">Proposal by Kairos — Web制作・システム開発チーム</div>
+  </div>
+  <div class="scroll-cue">SCROLL</div>
+</section>
+
+<section class="understand">
+  <div class="wrap u-grid">
+    <div class="u-text">
+      <div class="eyebrow">UNDERSTANDING</div>
+      <h2 class="sec-title">「近くて、また行きたくなる」<br>を作るのは、最初の一目です。</h2>
+      <p>今回のご相談を拝見し、単なる情報掲載ではなく「豆の選定」や「パンの製法」といったこだわりのストーリーを、20〜40代の女性やカフェ巡りが好きな方の心にきちんと届けたいというご意向を強く感じました。</p>
+      <p>Instagramで惹かれ、Googleマップで検索し、最後にホームページで「本当に行くお店」として確信を持っていただく——その導線の"最後のひと押し"を担うのが公式サイトの役割だと考えています。</p>
+      <p>スマートフォンでの閲覧が前提という点も踏まえ、片手でも心地よくスクロールできる、シズル感優先のレイアウトをご提案いたします。</p>
+      <div class="u-badges">
+        <span>スマホ最優先設計</span>
+        <span>写真の"焼き色"を活かす配色</span>
+        <span>SNS・Googleマップ導線</span>
+        <span>2〜3週間納品対応</span>
+      </div>
+    </div>
+    <div class="u-visual">
+      <div class="u-quote">湯気ひとつ、焼き色ひとつにも<br>お店の哲学が宿っている。<br>それを画面越しに<b>「香らせる」</b>設計を、<br>私たちは大切にしています。</div>
+    </div>
+  </div>
+</section>
+
+<section class="value">
+  <div class="wrap">
+    <div class="eyebrow">WHAT KAIROS OFFERS</div>
+    <h2 class="sec-title">Kairosがご提供できる価値</h2>
+    <div class="value-grid">
+      <div class="vcard">
+        <span class="num">01</span>
+        <div class="dot"></div>
+        <h3>シズル感を最大化する<br>写真設計</h3>
+        <p>ご用意いただく外観・内観・メニュー写真を、湯気や焼き色が際立つトリミングと余白で配置。第一印象で"美味しさ"を伝えます。</p>
+      </div>
+      <div class="vcard">
+        <span class="num">02</span>
+        <div class="dot"></div>
+        <h3>こだわりを伝える<br>ストーリー構成</h3>
+        <p>豆の選定基準やパンの製法など、テキスト原稿の一部をお預かりしながら、読み手の心に残る流れで構成いたします。</p>
+      </div>
+      <div class="vcard">
+        <span class="num">03</span>
+        <div class="dot"></div>
+        <h3>SNS・マップからの<br>受け皿設計</h3>
+        <p>Instagram連携やGoogleマップ埋め込みを最適配置し、「見て→調べて→来店」までの動線を途切れさせません。</p>
+      </div>
+      <div class="vcard">
+        <span class="num">04</span>
+        <div class="dot"></div>
+        <h3>ご予算に合わせた<br>確実な短納期</h3>
+        <p>30,000〜50,000円のご予算と2〜3週間の納期に対応できるよう、無駄のない制作フローで着実に仕上げます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="schedule">
+  <div class="wrap">
+    <div class="eyebrow">SCHEDULE IMAGE</div>
+    <h2 class="sec-title">ご契約から公開まで、<br>約2〜3週間の流れ</h2>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-week">1週目</div>
+        <h3>ヒアリング・素材整理</h3>
+        <p>ロゴ・写真・原稿をお預かりし、コンセプトとサイト構成（トップ／こだわり／メニュー／アクセス）を確定します。</p>
+      </div>
+      <div class="t-item">
+        <div class="t-week">2週目</div>
+        <h3>デザイン・コーディング</h3>
+        <p>スマホ表示を軸にデザインを作成。写真の魅力が最大限伝わるレイアウトで実装を進めます。</p>
+      </div>
+      <div class="t-item">
+        <div class="t-week">3週目</div>
+        <h3>確認・調整・公開</h3>
+        <p>実機での見え方を確認しながら微調整。Googleマップ埋め込みなど最終仕上げを行い、公開いたします。</p>
+      </div>
+    </div>
+    <p class="note-budget">※ ページ数・追加ご要望に応じて、スケジュールとお見積りは柔軟にご相談させていただきます。</p>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <h2>コーヒーの香りが伝わるサイトを、<br>一緒に作りませんか。</h2>
+    <p>自己紹介・実績・お見積り・着手可能時期など、詳細はメッセージにてすぐにご案内可能です。まずはお気軽にお声がけください。</p>
+    <a href="#" class="cta-btn">Kairosに相談してみる</a>
+  </div>
+</section>
+
+<footer>
+  Kairos ｜ Web制作・システム開発チーム — This is a proposal page for NeXUS_CODE 様
+</footer>
+
+</body>
+</html>
